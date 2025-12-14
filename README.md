@@ -1,31 +1,44 @@
-# Restaurants App - Directorio Web de Restaurantes
+# Restaurants App - Directorio Web con Firebase
 
 ## Descripción del Proyecto
-Aplicación web dinámica desarrollada con React que permite explorar, buscar y agregar restaurantes a un directorio digital.
-
-## Nombre estudiante: Allisson Andrea Cardona Lenis
+Aplicación web dinámica desarrollada con React y Firebase que permite gestionar un directorio de restaurantes con persistencia en la nube.
 
 ## Tecnologías Utilizadas
-- React 18
-- React Router DOM
-- Bootstrap 5
-- Font Awesome
-- HTML5 & CSS3
+- **Frontend**: React 18, React Router DOM, Bootstrap 5
+- **Backend**: Firebase Firestore (NoSQL Database)
+- **Hosting**: Firebase Hosting (opcional)
+- **Icons**: Font Awesome
 
 ## Características Principales
-- **Página de Inicio**: Lista dinámica de restaurantes usando componentes reutilizables
-- **Búsqueda Avanzada**: Filtrado en tiempo real por nombre y categoría
-- **Formulario Inteligente**: Validaciones en tiempo real y manejo de estado
-- **Diseño Responsive**: Compatible con todos los dispositivos
+- ✅ **Persistencia real en la nube** con Firebase Firestore
+- ✅ **CRUD completo**: Crear, Leer restaurantes
+- ✅ **Búsqueda avanzada**: Filtros en tiempo real
+- ✅ **Manejo de estado**: Hooks de React (useState, useEffect)
+- ✅ **Validaciones**: En tiempo real en formularios
+- ✅ **Loading states**: Indicadores de carga
+- ✅ **Manejo de errores**: Conexión perdida, errores de Firestore
+- ✅ **Diseño responsive**: Mobile-first approach
 
-## Instalación y Ejecución
+## Configuración de Firebase
 
-### Prerrequisitos
-- Node.js (versión 14 o superior)
-- npm o yarn
+### 1. Crear proyecto en Firebase Console
+1. Ve a [Firebase Console](https://console.firebase.google.com/)
+2. Crea un nuevo proyecto llamado `restaurants-app-react`
+3. Registra una aplicación web
+4. Copia las credenciales de configuración
 
-### Pasos de Instalación
-1. Clonar el repositorio:
-```bash
-git clone [URL_DEL_REPOSITORIO]
-cd restaurants-app-react
+### 2. Configurar Firestore Database
+1. En Firebase Console, ve a "Firestore Database"
+2. Haz clic en "Crear base de datos"
+3. Selecciona modo "Producción" o "Pruebas"
+4. Elige una región cercana
+5. Habilitar las reglas en modo prueba (para desarrollo):
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

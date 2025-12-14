@@ -43,3 +43,21 @@ export const categories = [
   "Mexicana",
   "Asiática",
 ];
+
+export const getRestaurants = () => {
+  try {
+    const savedRestaurants = JSON.parse(localStorage.getItem('restaurants')) || [];
+    const allRestaurants = [...restaurantsData];
+    
+    savedRestaurants.forEach(savedRestaurant => {
+      if (!allRestaurants.some(r => r.id === savedRestaurant.id)) {
+        allRestaurants.push(savedRestaurant);
+      }
+    });
+    
+    return allRestaurants;
+  } catch (error) {
+    console.error('Error al cargar restaurantes:', error);
+    return restaurantsData;
+  }
+};

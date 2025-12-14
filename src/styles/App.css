@@ -74,4 +74,56 @@ footer {
   .display-4 {
     font-size: 2rem;
   }
+  .spinner-border {
+  width: 3rem;
+  height: 3rem;
 }
+
+.restaurant-card {
+  transition: all 0.3s ease;
+  border: 1px solid #dee2e6;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: #0d6efd;
+}
+
+.alert {
+  border-radius: 10px;
+}
+
+.form-control:disabled {
+  background-color: #f8f9fa;
+}
+
+
+.badge {
+  font-weight: 500;
+}
+
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 768px) {
+  .card-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+}
+
